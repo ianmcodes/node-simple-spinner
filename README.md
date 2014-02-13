@@ -4,6 +4,8 @@ Supper Simple Spinner for Node.js
 This is a supper simple spinner / activity indicator for Node.js.
 I've used it in a few console tools that I've written in Node.js, where I've wanted to show that there is activity and that the program isn't hung.
 
+[![NPM](https://nodei.co/npm/simple-spinner.png?downloads=true)](https://nodei.co/npm/simple-spinner/)
+
 How Simple Is It?
 -----------------
 
