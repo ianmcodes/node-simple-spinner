@@ -1,0 +1,39 @@
+/***********
+ * Spinner *
+ ***********/
+var spinner = (function() {
+	var util = require('util');
+	var sequence = ["|","/","-","\\"]; //[".", "o", "0", "@", "*"];
+	var index = 0;
+	var timer;
+	
+	function start(inv) {
+		inv = inv || 250;
+		index = 0;
+		util.print(sequence[index]);
+		timer = setInterval(function() {
+			util.print("\r");
+			index = (index < sequence.length - 1) ? index + 1 : 0;
+			util.print(sequence[index]);
+		},inv);
+	}
+	
+	function stop() {
+		clearInterval(timer);
+		util.print("\r");
+	}
+	
+	function change_sequence(seq) {
+		if(Array.isArray(seq)) {
+			sequence = seq;
+		}
+	}
+	
+	return {
+		start: start,
+		stop: stop,
+		change_sequence: change_sequence
+	};
+})();
+
+module.exports = spinner;
