@@ -12,7 +12,7 @@ var spinner = (function() {
 		index = 0;
 		util.print(sequence[index]);
 		timer = setInterval(function() {
-			util.print("\r");
+			util.print(sequence[index].replace(/./g,"\r"));
 			index = (index < sequence.length - 1) ? index + 1 : 0;
 			util.print(sequence[index]);
 		},inv);
@@ -20,7 +20,7 @@ var spinner = (function() {
 	
 	function stop() {
 		clearInterval(timer);
-		util.print("\r");
+		util.print(sequence[index].replace(/./g,"\r"));
 	}
 	
 	function change_sequence(seq) {
