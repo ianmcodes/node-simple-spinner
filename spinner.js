@@ -19,7 +19,7 @@ var spinner = (function() {
 		index = 0;
 		process.stdout.write(sequence[index]);
 		timer = setInterval(function() {
-			process.stdout.write(sequence[index].replace(/./g,"\r"));
+			process.stdout.write(sequence[index].replace(/./g,"\b"));
 			index = (index < sequence.length - 1) ? index + 1 : 0;
 			process.stdout.write(sequence[index]);
 		},inv);
@@ -35,7 +35,7 @@ var spinner = (function() {
 			cursor.show();
 		}
 
-		process.stdout.write(sequence[index].replace(/./g,"\r"));
+		process.stdout.write(sequence[index].replace(/./g,"\b"));
 	}
 
 	function change_sequence(seq) {

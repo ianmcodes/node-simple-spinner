@@ -6,7 +6,7 @@
     "spinner",
     "indicator"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "licence": "MIT",
   "author": "Ian McCall <imccall@da-puck.com> (http://www.ianmccall.codes/)",
   "main": "./spinner",
