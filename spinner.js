@@ -35,7 +35,7 @@ var spinner = (function() {
 			cursor.show();
 		}
 
-		process.stdout.write(sequence[index].replace(/./g,"\b"));
+		process.stdout.clearLine();
 	}
 
 	function change_sequence(seq) {
