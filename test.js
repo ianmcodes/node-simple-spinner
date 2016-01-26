@@ -1,4 +1,4 @@
-var spinner = require('./spinner');
+var spinner = require('./lib/loading-spinner');
 
 function test1() {
   spinner.start();
