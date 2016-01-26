@@ -1,33 +1,33 @@
-var spinner = require('./lib/loading-spinner');
+var loadingSpinner = require('./lib/loading-spinner');
 
 function test1() {
-  spinner.start();
+  loadingSpinner.start();
   setTimeout(function() {
-    spinner.stop();
+    loadingSpinner.stop();
     test2();
   }, 1000);
 }
 
 function test2() {
-  spinner.change_sequence(["0o0", "o0o"]);
-  spinner.start();
+  loadingSpinner.changeSequence(['0o0', 'o0o']);
+  loadingSpinner.start();
   setTimeout(function() {
-    spinner.stop();
+    loadingSpinner.stop();
     test3();
   }, 1000);
 }
 
 function test3() {
-  spinner.start(50,{ hideCursor : true });
+  loadingSpinner.start(50,{ hideCursor : true });
   setTimeout(function() {
-    spinner.stop();
-    spinner.start(100, { doNotBlock : true });
+    loadingSpinner.stop();
+    loadingSpinner.start(100, { doNotBlock : true });
   }, 1000);
 }
 
-process.on("exit", function() {
-  spinner.stop();
-  console.log("Have a nice day");
+process.on('exit', function() {
+  loadingSpinner.stop();
+  console.log('Have a nice day');
 });
 
 test1();
