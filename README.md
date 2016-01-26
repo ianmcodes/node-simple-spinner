@@ -14,20 +14,32 @@
 
 ## Usage
 
+    loadingSpinner.start([Integer],
+      {
+        clearChar: [Boolean],
+        clearLine:  [Boolean],
+        doNotBlock: [Boolean],
+        hideCursor: [Boolean]
+      }
+    );
+
 ## Example
 
     var loadingSpinner = require('loading-spinner');
 
     var dary = function() {
       loadingSpinner.stop();
+
       process.stdout.write('DA-RY !');
     };
 
     var legend = function() {
       process.stdout.write('It\'s gonna be LE-GEN... Wait for it... ');
+
       loadingSpinner.start(100, {
-        clearAfter: true
+        clearChar: true
       });
+
       setTimeout(dary, 1000);
     };
 
