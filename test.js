@@ -1,6 +1,21 @@
 var loadingSpinner = require('./lib/loading-spinner');
 
-function test1() {
+var dary = function() {
+  loadingSpinner.stop();
+  process.stdout.write('DA-RY !');
+};
+
+var legend = function() {
+  process.stdout.write('It\'s gonna be LE-GEN... Wait for it... ');
+  loadingSpinner.start(100, {
+    clearAfter: true
+  });
+  setTimeout(dary, 1000);
+};
+
+legend();
+
+/*function test1() {
   loadingSpinner.start();
   setTimeout(function() {
     loadingSpinner.stop();
@@ -30,4 +45,4 @@ process.on('exit', function() {
   console.log('Have a nice day');
 });
 
-test1();
+test1();*/
