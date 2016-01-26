@@ -1,6 +1,6 @@
 {
   "name": "loading-spinner",
-  "main": "./spinner",
+  "main": "./lib/loading-spinner",
   "version": "1.0.0",
   "description": "Loading spinner for NodeJS.",
   "author": {
