@@ -1,10 +1,11 @@
 # loading-spinner
-**Loading spinner for NodeJS**
+**Loading spinner for NodeJS.**
 
-This is a supper simple spinner / activity indicator for Node.js.
-I've used it in a few console tools that I've written in Node.js, where I've wanted to show that there is activity and that the program isn't hung.
-
-[![NPM](https://nodei.co/npm/simple-spinner.png?downloads=true)](https://nodei.co/npm/simple-spinner/)
+[![Build Status](https://travis-ci.org/ivangabriele/loading-spinner.svg?branch=master)](https://travis-ci.org/ivangabriele/loading-spinner)
+[![NPM Version](https://img.shields.io/npm/v/loading-spinner.svg?style=flat)](https://www.npmjs.org/package/loading-spinner)
+[![NPM Downloads](https://img.shields.io/npm/dm/loading-spinner.svg?style=flat)](https://www.npmjs.org/package/loading-spinner)
+[![Dependency Status](https://david-dm.org/ivangabriele/loading-spinner.svg)](https://david-dm.org/ivangabriele/loading-spinner)
+[![devDependency Status](https://david-dm.org/ivangabriele/loading-spinner/dev-status.svg)](https://david-dm.org/ivangabriele/loading-spinner#info=devDependencies)
 
 How Simple Is It?
 -----------------
