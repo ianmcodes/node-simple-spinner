@@ -8,7 +8,7 @@ var dary = function() {
 var legend = function() {
   process.stdout.write('It\'s gonna be LE-GEN... Wait for it... ');
   loadingSpinner.start(100, {
-    hideCursor: true
+    // hideCursor: true
   });
   setTimeout(dary, 1000);
 };

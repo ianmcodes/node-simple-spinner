@@ -14,13 +14,25 @@
 
 ## Usage
 
-    loadingSpinner.start([Integer],
+    var loadingSpinner = require('loading-spinner');
+
+    // Start the loading spinner
+    loadingSpinner.start(
+      [Integer, default: 100], // Interval (in ms) between each spinner sequence element
       {
-        clearChar: [Boolean],
-        clearLine:  [Boolean],
-        doNotBlock: [Boolean],
-        hideCursor: [Boolean]
+        clearChar:  [Boolean, default: false], // Clear the spinner when stop() is called
+        clearLine:  [Boolean, default: false], // Clear the entire line when stop() is called
+        doNotBlock: [Boolean, default: false], // Does not prevent the process from exiting
+        hideCursor: [Boolean, default: false]  // Hide the cursor until stop() is called
       }
+    );
+
+    // Stop the loading spinner
+    loadingSpinner.stop();
+
+    // Customize the spinner sequence
+    loadingSpinner.setSequence(
+      [Array, default: ['|','/','-','\\']], // Sequence of spinner elements
     );
 
 ## Example
