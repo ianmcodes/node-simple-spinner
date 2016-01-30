@@ -1,4 +1,4 @@
-var loadingSpinner = require('./lib/loading-spinner');
+var loadingSpinner = require('../lib/loading-spinner');
 
 var dary = function() {
   loadingSpinner.stop();
