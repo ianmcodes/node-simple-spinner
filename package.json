@@ -1,15 +1,31 @@
 {
-  "name": "simple-spinner",
-  "description": "A super simple spinner",
-  "keywords": [
-    "simple",
-    "spinner",
-    "indicator"
+  "name": "loading-spinner",
+  "main": "./lib/loading-spinner",
+  "version": "1.1.0",
+  "description": "Loading spinner for NodeJS.",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Ivan Gabriele",
+    "email": "ivan.gabriele@gmail.com",
+    "url": "http://www.ivangabriele.com"
+  },
+  "contributors": [
+    {
+      "name": "Ian McCall",
+      "email": "imccall@da-puck.com",
+      "url": "http://www.ianmccall.codes"
+    }
   ],
-  "version": "0.0.5",
-  "licence": "MIT",
-  "author": "Ian McCall <imccall@da-puck.com> (http://www.ianmccall.codes/)",
-  "main": "./spinner",
+  "license": "MIT",
+  "keywords": [
+    "load",
+    "loading",
+    "bar",
+    "indicator",
+    "spinner"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/dapuck/node-simple-spinner.git"
@@ -17,5 +33,8 @@
   "homepage": "https://github.com/dapuck/node-simple-spinner",
   "dependencies": {
     "ansi": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
