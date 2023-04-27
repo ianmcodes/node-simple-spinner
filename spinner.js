@@ -1,53 +1,65 @@
 /***********
  * Spinner *
  ***********/
-var cursor = require('ansi')(process.stdout);
-var spinner = (function() {
-	var sequence = ["|","/","-","\\"]; //[".", "o", "0", "@", "*"];
-	var index = 0;
-	var timer;
-	var opts = {};
+const cursor = require('ansi')(process.stdout);
+const spinner = (function () {
+	let sequence = ['||', '/', '-', '\\'];
+	let sequenceText;
+	let index = 0;
+	let timer;
+	let opts = {};
 
-	function start(inv, options) {
-		options = options || {};
-		opts = options;
-		if(options.hideCursor) {
-			cursor.hide();
-		}
-		
-		inv = inv || 250;
+	function start(inv = 250, options = {}) {
+		opts = { hideCursor: false, doNotBlock: false, text: '', ...options };
+
+		if (opts.hideCursor) cursor.hide();
+
+		sequenceText = addTextSequence();
+
 		index = 0;
-		process.stdout.write(sequence[index]);
-		timer = setInterval(function() {
-			process.stdout.write(sequence[index].replace(/./g,"\b"));
-			index = (index < sequence.length - 1) ? index + 1 : 0;
-			process.stdout.write(sequence[index]);
-		},inv);
-		
-		if(options.doNotBlock) {
-			timer.unref();
-		}
+		process.stdout.write(sequenceText[index]);
+
+		timer = setInterval(function () {
+			clearLine();
+			index = index < sequenceText.length - 1 ? index + 1 : 0;
+			process.stdout.write(sequenceText[index]);
+		}, inv);
+
+		if (opts.doNotBlock) timer.unref();
 	}
 
 	function stop() {
 		clearInterval(timer);
-		if(opts.hideCursor) {
+
+		if (opts.hideCursor) {
 			cursor.show();
 		}
 
-		process.stdout.write(sequence[index].replace(/./g,"\b"));
+		clearLine();
 	}
 
-	function change_sequence(seq) {
-		if(Array.isArray(seq)) {
+	function changeSequence(seq) {
+		if (Array.isArray(seq)) {
 			sequence = seq;
+			sequenceText = addTextSequence();
+		} else {
+			throw new Error('Sequence must be an array');
 		}
 	}
 
+	function clearLine() {
+		process.stdout.write(sequenceText[index].replace(/./g, '\b'));
+		process.stdout.clearLine();
+	}
+
+	function addTextSequence() {
+		return opts.text ? sequence.map((character) => character + ' ' + opts.text) : sequence;
+	}
+
 	return {
-		start: start,
-		stop: stop,
-		change_sequence: change_sequence
+		start,
+		stop,
+		changeSequence,
 	};
 })();
 
