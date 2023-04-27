@@ -1,4 +1,4 @@
-var spinner = require('./spinner');
+const spinner = require('./spinner');
 
 function test1() {
 	spinner.start();
