@@ -9,8 +9,7 @@ function test1() {
 }
 
 function test2() {
-	spinner.changeSequence(['0o0', 'o0o']);
-	spinner.start();
+	spinner.start({ sequence: ['0o0', 'o0o'] });
 	setTimeout(function () {
 		spinner.stop();
 		test3();
@@ -18,7 +17,7 @@ function test2() {
 }
 
 function test3() {
-	spinner.start(50, { hideCursor: true });
+	spinner.start({ sequence: ['0o0', 'o0o'], interval: 50, hideCursor: true });
 	setTimeout(function () {
 		spinner.stop();
 		test4();
@@ -26,12 +25,11 @@ function test3() {
 }
 
 function test4() {
-	spinner.changeSequence(['|', '/', '-', '\\']);
-	spinner.start(100, { text: 'Loading...' });
+	spinner.start({ sequence: 'dots', interval: 80, text: 'Loading...' });
 	setTimeout(function () {
 		spinner.stop();
-		spinner.start(100, { doNotBlock: true });
-	}, 1000);
+		spinner.start({ interval: 100, doNotBlock: true });
+	}, 1500);
 }
 
 process.on('exit', function () {

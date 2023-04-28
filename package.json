@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/dapuck/node-simple-spinner",
   "dependencies": {
-    "ansi": "^0.3.0"
+    "ansi": "^0.3.0",
+    "cli-spinners": "^2.8.0"
   }
 }
