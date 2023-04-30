@@ -11,9 +11,11 @@ const spinner = (function () {
 	let opts = {};
 
 	function start(options = {}) {
+		let interval;
+
 		opts = {
 			sequence: 'line',
-			interval: 250,
+			interval: 0,
 			hideCursor: false,
 			doNotBlock: false,
 			text: '',
@@ -21,9 +23,7 @@ const spinner = (function () {
 		};
 
 		if (opts.hideCursor) cursor.hide();
-
-		sequence = addTextSequence();
-
+		interval = buildSequence(opts.interval);
 		index = 0;
 		process.stdout.write(sequence[index]);
 
@@ -31,7 +31,7 @@ const spinner = (function () {
 			clearLine();
 			index = index < sequence.length - 1 ? index + 1 : 0;
 			process.stdout.write(sequence[index]);
-		}, opts.interval);
+		}, interval);
 
 		if (opts.doNotBlock) timer.unref();
 	}
@@ -51,16 +51,21 @@ const spinner = (function () {
 		process.stdout.clearLine();
 	}
 
-	function addTextSequence() {
-		let sequence = [];
+	function buildSequence(interval) {
 		if (Array.isArray(opts.sequence)) {
 			sequence = opts.sequence;
 		} else {
-			if (cliSpinners[opts.sequence] == undefined) throw new Error('Spinner not found');
-			sequence = cliSpinners[opts.sequence].frames;
+			const cliSpinner = cliSpinners[opts.sequence];
+			if (cliSpinner == undefined) throw new Error('Spinner not found');
+			sequence = cliSpinner.frames;
+			if (interval == 0) interval = cliSpinner.interval;
 		}
+
 		if (sequence.length == 0) throw new Error('Spinner is empty');
-		return opts.text ? sequence.map((character) => character + ' ' + opts.text) : sequence;
+		sequence = opts.text ? sequence.map((character) => character + ' ' + opts.text) : sequence;
+
+		if (interval == 0) interval = 250;
+		return interval;
 	}
 
 	return {
