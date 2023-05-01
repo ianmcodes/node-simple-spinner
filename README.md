@@ -16,7 +16,7 @@ So simple it only has 2 functions.
 -   `start([options])`
     -   Obviously this starts the spinner.
     -   **Options**: start can take an options object with the following keys:
-        -   `sequence` (string | array, default: "line"): If it is a string, expect the name of a [cli-spinners](https://www.npmjs.com/package/cli-spinners) spinner. The list of spinners can be reviewed at [cli-spinners JSON](https://github.com/sindresorhus/cli-spinners/blob/main/spinners.json). It it is a array, expect an array of strings like this [".", "o", "0", "@", "*"]
+        -   `sequence` (string | array, default: "line"): If it is a string, expect the name of a [cli-spinners](https://www.npmjs.com/package/cli-spinners) spinner. The list of spinners can be reviewed at [cli-spinners JSON](https://github.com/sindresorhus/cli-spinners/blob/main/spinners.json). If it is a array, expect an array of strings like this [".", "o", "0", "@", "*"]
         -   `interval` (integer, default: 250): Specify how to fast the sequence should go in milliseconds. If a spinner from [cli-spinners](https://www.npmjs.com/package/cli-spinners) is given and an interval is not specified, it will be taken from the information of the spinner in the [cli-spinners JSON](https://github.com/sindresorhus/cli-spinners/blob/main/spinners.json).
         -   `hideCursor` (boolean, default: false): When true, hide the console cursor (uses TooTallNate/ansi.js)
         -   `doNotBlock` (boolean, default: false): When true, unref the timer so it does not prevent the process from exiting.
